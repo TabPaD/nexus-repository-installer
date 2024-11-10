@@ -18,7 +18,7 @@ FETCH_URL ?= "http://download.sonatype.com/nexus/3/$(BUNDLE_FILE)"
 # upstream connectivity issues.
 SKIP_FETCH ?= false
 
-RHEL_VERSION ?= 7
+RHEL_VERSION ?= 9
 # The release of the RPM package
 PKG_RELEASE ?= 1.el$(RHEL_VERSION)
 
