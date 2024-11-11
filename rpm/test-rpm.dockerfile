@@ -1,10 +1,8 @@
-FROM       centos:7
+FROM rockylinux/rockylinux:9.4
 
 COPY ./ /data
 
-#RUN yum -y install wget
+#RUN dnf -y install wget
 
 VOLUME /data
 WORKDIR /data
-
-# get systemd happy in default centos image - no joy

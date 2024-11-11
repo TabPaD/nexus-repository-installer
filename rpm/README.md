@@ -4,18 +4,15 @@ Misc RPM Notes
 Docker image used to build rpm:
 -------------------------------
 
-https://github.com/jswank/dockerfiles/blob/master/centos-rpm/Dockerfile.7
+https://github.com/TabPaD/Dockerfiles/blob/main/rockylinux-rpm/Dockerfile.9
 
 ```dockerfile
-FROM       centos:7
-MAINTAINER Jason Swank <docker@scalene.net>
-
-RUN yum -y groupinstall "Development Tools" \
-  && yum clean all
-
-RUN yum install -y \
-  epel-release rpmdevtools curl tar createrepo \
-  && yum clean all
+FROM rockylinux/rockylinux:9.4
+LABEL maintainer="TabPaD <tabpad@hotmail.com>"
+RUN  dnf -y groupinstall "Development Tools" \
+  && dnf install -y epel-release rpmdevtools curl tar rsync --allowerasing \
+  && dnf clean all \
+  && rm -rf /var/cache/yum
 ```
 
-https://hub.docker.com/layers/jswank/centos-rpm/7/images/sha256-fa9bdc1296f57eed10f9616dcd762f192128a1cf08fa9e967430ea28260edfb9?context=explore
+https://hub.docker.com/layers/tabpad/rockylinux-rpm/9.4/images/sha256-b3d9bd9f8c9e6b45d97859e1452617f8875d1f44090ce3c433b16172e771d08e
